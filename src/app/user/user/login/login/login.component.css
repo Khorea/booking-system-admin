@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
