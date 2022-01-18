@@ -4,24 +4,13 @@ import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  userDetails: any;
+  
+  constructor(private router: Router) { }
 
-  constructor(private router: Router, private service: UserService) { }
-
-  ngOnInit() {
-    this.service.getUserProfile().subscribe(
-      res => {
-        this.userDetails = res;
-      },
-      err => {
-        console.log(err);
-      },
-    );
-  }
-
+  ngOnInit() {}
 
   onLogout() {
     localStorage.removeItem('token');

@@ -3,24 +3,25 @@ import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../../../shared/user.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginModel } from 'src/app/model/login-model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  formModel = {
-    UserName: '',
-    Password: ''
-  }
+  loginModel = new LoginModel("", "", "admin");
 
   constructor(private service: UserService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
     if (localStorage.getItem('token') != null)
       this.router.navigateByUrl('/home');
+
+    let form = document.querySelector(".wrapped-div");
+    form?.classList.remove("register");
   }
 
   observer = {
@@ -39,5 +40,4 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.service.login(form.value).subscribe(this.observer);
   }
-
 }

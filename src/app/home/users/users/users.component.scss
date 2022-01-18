@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+table {
+    height: 70%;
+    width: 50%;
+}

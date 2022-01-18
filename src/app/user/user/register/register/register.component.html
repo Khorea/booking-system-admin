@@ -1,1 +1,25 @@
-<p>work in progress</p>
+<form #form='ngForm' autocomplete="off" (submit)="onSubmit()">
+    <mat-form-field appearance="legacy">
+      <mat-label>Name</mat-label>
+      <input matInput name="Name" [(ngModel)]="userModel.name" required>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Address</mat-label>
+      <input matInput name="Address" [(ngModel)]="userModel.address" required>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="Email" [(ngModel)]="userModel.email" required email="true">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Username</mat-label>
+      <input matInput name="Username" [(ngModel)]="userModel.username" required minlength="3" maxlength="16">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="Password" [(ngModel)]="userModel.password" required minlength="4" maxlength="120">
+    </mat-form-field>
+    <div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Register</button>
+    </div>
+</form>

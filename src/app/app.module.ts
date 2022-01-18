@@ -11,6 +11,13 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MaterialModule } from './material/material/material.module';
+import { UserService } from './shared/user.service';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { UsersComponent } from './home/users/users/users.component';
+import { TrainsComponent } from './home/trains/trains/trains.component';
+import { RoutesComponent } from './home/routes/routes/routes.component';
+import { BookingsComponent } from './home/bookings/bookings/bookings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +25,11 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     UserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsersComponent,
+    TrainsComponent,
+    RoutesComponent,
+    BookingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +40,14 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot({
       progressBar: true
     }),
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [UserService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
