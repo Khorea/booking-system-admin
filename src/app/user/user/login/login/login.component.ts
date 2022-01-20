@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   observer = {
     next: (res: any) => {
       localStorage.setItem('token', res.token);
+      localStorage.setItem('username', res.username);
       this.router.navigateByUrl('/home');
     },
     error: (err: any) => {

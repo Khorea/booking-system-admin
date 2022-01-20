@@ -7,6 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCommonModule } from '@angular/material/core';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -17,6 +21,10 @@ const MaterialComponents = [
   MatButtonToggleModule,
   MatSidenavModule,
   MatTableModule,
+  MatMenuModule,
+  MatTabsModule,
+  MatCommonModule,
+  MatStepperModule
 ];
 
 @NgModule({
