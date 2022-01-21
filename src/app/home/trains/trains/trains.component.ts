@@ -20,6 +20,13 @@ export class TrainsComponent implements OnInit {
     orderNumbers: this._formBuilder.array([]),
   });
 
+  cars = this._formBuilder.group({
+    firstClass: [0],
+    secondClass: [0],
+    firstClassSlepper: [0],
+    couchette: [0]
+  });
+
   count: number = 1;
 
   constructor(private _formBuilder: FormBuilder) {}

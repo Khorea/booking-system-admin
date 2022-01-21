@@ -16,7 +16,6 @@ import { UserService } from './shared/user.service';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UsersComponent } from './home/users/users/users.component';
 import { TrainsComponent } from './home/trains/trains/trains.component';
-import { RoutesComponent } from './home/routes/routes/routes.component';
 import { BookingsComponent } from './home/bookings/bookings/bookings.component';
 import { StationsComponent } from './home/trains/trains/stations/stations.component';
 
@@ -29,7 +28,6 @@ import { StationsComponent } from './home/trains/trains/stations/stations.compon
     RegisterComponent,
     UsersComponent,
     TrainsComponent,
-    RoutesComponent,
     BookingsComponent,
     StationsComponent,
   ],

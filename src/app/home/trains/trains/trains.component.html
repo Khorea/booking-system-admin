@@ -81,6 +81,30 @@
           </div>
         </form>
       </mat-step>
+      <mat-step [stepControl]="cars">
+        <form [formGroup]="cars">
+          <ng-template matStepLabel>Add train cars</ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>First class</mat-label>
+            <input matInput type="number" formControlName="firstClass">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Second class</mat-label>
+            <input matInput type="number" formControlName="secondClass">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>First class sleeper</mat-label>
+            <input matInput type="number" formControlName="firstClassSlepper">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Couchette</mat-label>
+            <input matInput type="number" formControlName="couchette">
+          </mat-form-field>
+          <div class="type-step-button-container">
+            <button color="primary" mat-raised-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
     </mat-stepper>
   </mat-tab>
   <mat-tab label="Edit Train">
