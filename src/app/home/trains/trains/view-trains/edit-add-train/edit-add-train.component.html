@@ -1,0 +1,95 @@
+<div class="content">
+    <form class="type-form" [formGroup]="trainTypeFormGroup">
+        <mat-form-field appearance="fill">
+          <mat-label>Type</mat-label>
+          <input matInput formControlName="trainType" required>
+        </mat-form-field>
+    </form>
+    
+    <form class="stations-form" [formGroup]="stations">
+        <div class="itinerary-header">
+          <button mat-raised-button color="primary" (click)="addStation()">Add station</button>
+        </div>
+    
+        <div class="itinerary-info-container">
+          <ng-container formArrayName="locations">
+            <div class="station-same-input-containers first">
+              <div *ngFor="let location of locations.controls; let i=index">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Location</mat-label>
+                  <input matInput type="text" [formControlName]="i" />
+                </mat-form-field>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container formArrayName="arrivals">
+            <div class="station-same-input-containers">
+              <div *ngFor="let arriveTime of arrivals.controls; let i=index">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Arrive time</mat-label>
+                  <input matInput type="time" [formControlName]="i" />
+                </mat-form-field>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container formArrayName="departures">
+            <div class="station-same-input-containers">
+              <div *ngFor="let departureTime of departures.controls; let i=index">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Departure time</mat-label>
+                  <input matInput type="time" [formControlName]="i" />
+                </mat-form-field>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container formArrayName="distances">
+            <div class="station-same-input-containers">
+              <div *ngFor="let distance of distances.controls; let i=index">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Distance</mat-label>
+                  <input matInput type="number" [formControlName]="i" />
+                </mat-form-field>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container formArrayName="lines">
+            <div class="station-same-input-containers last">
+              <div *ngFor="let line of lines.controls; let i=index">
+                <mat-form-field appearance="legacy">
+                  <mat-label>Line</mat-label>
+                  <input matInput type="number" [formControlName]="i" />
+                </mat-form-field>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+    </form>
+    
+    <form class="train-layout-form" [formGroup]="cars">
+        <div class="field-group">
+            <mat-form-field appearance="fill">
+                <mat-label>First class</mat-label>
+                <input matInput type="number" formControlName="firstClass">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Second class</mat-label>
+                <input matInput type="number" formControlName="secondClass">
+              </mat-form-field>
+        </div>
+        <div class="field-group">
+            <mat-form-field appearance="fill">
+                <mat-label>First class sleeper</mat-label>
+                <input matInput type="number" formControlName="firstClassSleeper">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Couchette</mat-label>
+                <input matInput type="number" formControlName="couchette">
+              </mat-form-field>
+        </div>
+        
+        <div class="type-step-button-container">
+          <button color="primary" mat-raised-button (click)="onSubmit()">Submit</button>
+        </div>
+    </form>
+</div>
+

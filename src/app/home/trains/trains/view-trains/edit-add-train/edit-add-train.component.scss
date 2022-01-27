@@ -1,0 +1,81 @@
+:host {
+    width: 100%;
+    gap: 30px;
+    display: flex;
+}
+
+mat-tab-group {
+    flex-grow: 1;
+}
+
+.type-step-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinerary-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinerary-info-container {
+    display: flex;
+    gap: 30px;
+    border: solid 1px;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+.station-same-input-containers {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-grow: 1;
+}
+
+mat-form-field {
+    width: 40%;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.type-form {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stations-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.train-layout-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.field-group {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
