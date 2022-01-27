@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
 
   observer = {
     next: (res: any) => {
+      console.log(res);
       this.userDetails = new UserDetails(-1, res.name, res.address, res.email, res.username, res.role);
       this.userFullName = this.userDetails.name;
       this.updateUserButton();

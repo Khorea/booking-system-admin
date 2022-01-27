@@ -26,4 +26,8 @@ export class TrainService {
   deleteTrain(trainId: number) {
     return this.http.delete(this.BaseURI + '/Train', {params: {'trainId': trainId}});
   }
+
+  updateTrain(trainId: number, trainModel: TrainModel) {
+    return this.http.put(this.BaseURI + '/Train', trainModel, {params: {'trainId': trainId}});
+  }
 }

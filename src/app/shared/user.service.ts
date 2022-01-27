@@ -26,4 +26,8 @@ export class UserService {
   getUserDetails(username: string) {
     return this.http.get(this.BaseURI + '/Person/PersonDetails', {params: {'username': username}});
   }
+
+  updateUser(userModel: UserModel, oldUsername: string) {
+    return this.http.put(this.BaseURI + '/Person', userModel, {params: {'oldUsername': oldUsername}});
+  }
 }

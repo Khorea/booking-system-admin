@@ -20,6 +20,7 @@ import { BookingsComponent } from './home/bookings/bookings/bookings.component';
 import { StationsComponent } from './home/trains/trains/stations/stations.component';
 import { ViewTrainsComponent } from './home/trains/trains/view-trains/view-trains.component';
 import { EditAddTrainComponent } from './home/trains/trains/view-trains/edit-add-train/edit-add-train.component';
+import { UserInfoComponent } from './home/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EditAddTrainComponent } from './home/trains/trains/view-trains/edit-add
     StationsComponent,
     ViewTrainsComponent,
     EditAddTrainComponent,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

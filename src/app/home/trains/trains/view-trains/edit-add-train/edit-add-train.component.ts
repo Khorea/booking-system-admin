@@ -2,6 +2,7 @@ import { Time } from '@angular/common';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { StationModel } from 'src/app/model/station-model';
 import { TrainLayout } from 'src/app/model/train-layout';
 import { TrainModel } from 'src/app/model/train-model';
@@ -43,7 +44,7 @@ export class EditAddTrainComponent implements OnInit {
 
   count: number = 1;
 
-  constructor(private _formBuilder: FormBuilder, private service: TrainService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private _formBuilder: FormBuilder, private service: TrainService, private router: Router, private route: ActivatedRoute, private toastr: ToastrService) {}
 
   trainDetailsObserver = {
     next: (res: any) => {
@@ -72,7 +73,6 @@ export class EditAddTrainComponent implements OnInit {
       this.addStation();
     } else {
       this.service.getTrainDetails(this.trainId).subscribe(this.trainDetailsObserver);
-      
     }
   }
 
@@ -140,8 +140,8 @@ export class EditAddTrainComponent implements OnInit {
     this.locations.push(new FormControl(""));
     this.arrivals.push(new FormControl(""));
     this.departures.push(new FormControl(""));
-    this.distances.push(new FormControl(""));
-    this.lines.push(new FormControl(""));
+    this.distances.push(new FormControl(0));
+    this.lines.push(new FormControl(0));
     this.orderNumbers.push(new FormControl(this.count));
     this.count++;
   }
@@ -156,7 +156,7 @@ export class EditAddTrainComponent implements OnInit {
     this.orderNumbers.push(new FormControl(orderNumber));
   }
 
-  observer = {
+  logObserver = {
     next: (res: any) => {
       console.log(res);
     },
@@ -165,17 +165,45 @@ export class EditAddTrainComponent implements OnInit {
     },
   };
 
+  updateObserver = {
+    next: (res: any) => {
+      this.toastr.success('Train updated successfully', 'Update complete!');
+    },
+    error: (err: any) => {
+      this.toastr.error('Train was not updated', "Update failed!");
+      console.log(err);
+    }
+  }
+  
+  addObserver = {
+    next: (res: any) => {
+      this.toastr.success('Train inserted successfully', 'Insertion complete!');
+      this.router.navigateByUrl('/home/trains');
+    },
+    error: (err: any) => {
+      this.toastr.error('Could not insert new train, check data', 'Insertion failed!');
+      console.log(err);
+    }
+  }
+
   onSubmit() {
     this.trainModel.trainType = this.trainTypeFormGroup.get('trainType')?.value;
     const n = this.locations.length;
     for (let i = 0; i < n; i++) {
-      this.trainModel.stations.push(new StationModel(this.locations.at(i).value, this.arrivals.at(i).value, this.departures.at(i).value, this.lines.at(i).value, this.orderNumbers.at(i).value))
+      let stationModel = new StationModel(this.locations.at(i).value, this.arrivals.at(i).value, this.departures.at(i).value, this.distances.at(i).value, this.lines.at(i).value, this.orderNumbers.at(i).value);
+      if (!this.isAddMode) {
+        stationModel.stationId = this.stationIds.at(i).value;
+      }
+      this.trainModel.stations.push(stationModel)
     }
     this.trainModel.trainLayout = new TrainLayout(this.firstClass?.value, this.secondClass?.value, this.firstClassSleeper?.value, this.couchette?.value);
 
     console.log(this.trainModel);
 
-    this.service.register(this.trainModel).subscribe(this.observer);
+    if (this.isAddMode) {
+      this.service.register(this.trainModel).subscribe(this.addObserver);
+    } else {
+      this.service.updateTrain(this.trainId, this.trainModel).subscribe(this.updateObserver);
+    }
   }
-
 }

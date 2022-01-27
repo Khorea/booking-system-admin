@@ -3,13 +3,12 @@
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>My App</span>
+        <span>eTrain Ticketing</span>
         <span class="example-spacer"></span>
         <button mat-mini-fab class="userButton" [matMenuTriggerFor]="menu"></button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>View profile</button>
-            <button mat-menu-item>Item 2</button>
-            <button mat-menu-item>Item 3</button>
+            <button mat-menu-item routerLink="/userInfo">View profile</button>
+            <button mat-menu-item (click)="onLogout()">Log Out</button>
         </mat-menu>
     </mat-toolbar>
     
