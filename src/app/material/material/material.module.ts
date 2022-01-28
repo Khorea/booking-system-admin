@@ -11,6 +11,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCommonModule } from '@angular/material/core';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -24,7 +26,9 @@ const MaterialComponents = [
   MatMenuModule,
   MatTabsModule,
   MatCommonModule,
-  MatStepperModule
+  MatStepperModule,
+  MatSelectModule,
+  MatPaginatorModule,
 ];
 
 @NgModule({

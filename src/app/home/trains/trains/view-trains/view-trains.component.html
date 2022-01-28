@@ -58,4 +58,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-<button mat-raised-button color="primary" routerLink="edit-add-train" routerLinkActive='active'>Add new train</button>
+<button mat-fab color="primary" routerLink="edit-add-train" routerLinkActive='active' class="add-train-button">
+  <mat-icon>
+    add
+  </mat-icon>
+</button>

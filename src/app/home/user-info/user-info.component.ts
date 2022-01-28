@@ -85,8 +85,21 @@ export class UserInfoComponent implements OnInit {
     }
   }
 
+  updateUserObserver = {
+    next: (res: any) => {
+      localStorage.setItem('username', res.username);
+      this.oldUsername = localStorage.getItem('username') || '';
+      this.toastr.success("User info successfully updated", "Success!");
+      console.log(res);
+    },
+    error: (err: any) => {
+      console.log(err);
+      this.toastr.error(err.message, "Update failed!");
+    }
+  }
+
   onSubmit() {
     const userModel = new UserModel(this.name?.value, this.address?.value, this.email?.value, this.username?.value, this.password?.value, this.role?.value)
-    this.service.updateUser(userModel, this.oldUsername).subscribe(this.logObserver);
+    this.service.updateUser(userModel, this.oldUsername).subscribe(this.updateUserObserver);
   }
 }

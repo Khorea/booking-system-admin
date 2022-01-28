@@ -2,7 +2,11 @@
     <form class="type-form" [formGroup]="trainTypeFormGroup">
         <mat-form-field appearance="fill">
           <mat-label>Type</mat-label>
-          <input matInput formControlName="trainType" required>
+          <mat-select formControlName="trainType">
+            <mat-option value="IR">IR</mat-option>
+            <mat-option value="R">R</mat-option>
+            <mat-option value="Accelerated">Accelerated</mat-option>
+          </mat-select>
         </mat-form-field>
     </form>
     

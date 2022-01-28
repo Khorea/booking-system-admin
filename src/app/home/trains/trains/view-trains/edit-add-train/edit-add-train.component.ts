@@ -20,7 +20,7 @@ export class EditAddTrainComponent implements OnInit {
   trainId: number = -1;
 
   trainTypeFormGroup = this._formBuilder.group({
-    trainType: ['', Validators.required],
+    trainType: ['IR', Validators.required],
   });
 
   stations = this._formBuilder.group({
@@ -137,9 +137,9 @@ export class EditAddTrainComponent implements OnInit {
 
   addStation() {
     this.stationIds.push(new FormControl(-1));
-    this.locations.push(new FormControl(""));
-    this.arrivals.push(new FormControl(""));
-    this.departures.push(new FormControl(""));
+    this.locations.push(new FormControl("", Validators.required));
+    this.arrivals.push(new FormControl("", Validators.required));
+    this.departures.push(new FormControl("", Validators.required));
     this.distances.push(new FormControl(0));
     this.lines.push(new FormControl(0));
     this.orderNumbers.push(new FormControl(this.count));

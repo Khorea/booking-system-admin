@@ -3,52 +3,55 @@
 </div>
 
 <div class="content">
-    <form [formGroup]="userInfoForm">
+    <div class="form-container">
 
-        <div class="personal-info">
-            <mat-form-field appearance="fill">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name" required>
-            </mat-form-field>
+        <form [formGroup]="userInfoForm">
 
-            <mat-form-field appearance="fill">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" required>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>Address</mat-label>
-                <input matInput formControlName="address" required>
-            </mat-form-field>
-        </div>
-
-        <div class="account-info">
-            <div class="username-role">
+            <div class="personal-info">
                 <mat-form-field appearance="fill">
-                    <mat-label>Role</mat-label>
-                    <input matInput formControlName="role" required [disabled]="true">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" required>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Username</mat-label>
-                    <input matInput formControlName="username">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" required>
                 </mat-form-field>
             </div>
 
-            <div class="passwords">
-                <h2>Change Password</h2>
-                <mat-form-field class="password-field" appearance="fill">
-                    <mat-label>Password</mat-label>
-                    <input matInput type="password" formControlName="password">
-                </mat-form-field>
+            <div class="account-info">
+                <div class="username-role">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Role</mat-label>
+                        <input matInput formControlName="role" required [disabled]="true">
+                    </mat-form-field>
 
-                <mat-form-field class="password-field" appearance="fill">
-                    <mat-label>Confirm Password</mat-label>
-                    <input matInput type="password" formControlName="checkPassword">
-                </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username">
+                    </mat-form-field>
+                </div>
+
+                <div class="passwords">
+                    <h2>Change Password</h2>
+                    <mat-form-field class="password-field" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                    </mat-form-field>
+
+                    <mat-form-field class="password-field" appearance="fill">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput type="password" formControlName="checkPassword">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
 
-        <button mat-raised-button color="primary" (click)="onSubmit()">Submit changes</button>
-    </form>
+            <button mat-raised-button color="primary" (click)="onSubmit()">Submit changes</button>
+        </form>
+    </div>
 </div>

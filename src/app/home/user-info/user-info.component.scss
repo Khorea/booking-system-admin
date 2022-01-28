@@ -16,6 +16,16 @@
 
 .content {
     background-color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container {
+    width: 60%;
+    
 }
 
 form {
