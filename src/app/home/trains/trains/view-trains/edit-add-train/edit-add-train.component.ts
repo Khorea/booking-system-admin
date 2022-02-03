@@ -1,6 +1,6 @@
 import { Time } from '@angular/common';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StationModel } from 'src/app/model/station-model';
@@ -15,6 +15,19 @@ import { TrainService } from 'src/app/shared/train.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditAddTrainComponent implements OnInit {
+
+  stationIndex: number = 1;
+  testStationForm: FormGroup = this._formBuilder.group({
+    stationIds: [-1],
+    location: [''],
+    arrivalTime: [''],
+    departureTime: [''],
+    distance: [0],
+    line: [0],
+    order: [0]
+  });
+
+  testStationsForm: FormGroup[] = [];
 
   isAddMode: boolean = false;
   trainId: number = -1;
@@ -63,6 +76,8 @@ export class EditAddTrainComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.testStationsForm.push(this.testStationForm);
+    this.testStationsForm.push(this.testStationForm);
     this.clearStations();
     
     this.trainId = this.route.snapshot.params['trainId'];
@@ -74,6 +89,10 @@ export class EditAddTrainComponent implements OnInit {
     } else {
       this.service.getTrainDetails(this.trainId).subscribe(this.trainDetailsObserver);
     }
+
+    setTimeout(() => {
+      this.stationIndex++;
+    }, 2000);
   }
 
   get trainType() {

@@ -17,10 +17,10 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { UsersComponent } from './home/users/users/users.component';
 import { TrainsComponent } from './home/trains/trains/trains.component';
 import { BookingsComponent } from './home/bookings/bookings/bookings.component';
-import { StationsComponent } from './home/trains/trains/stations/stations.component';
 import { ViewTrainsComponent } from './home/trains/trains/view-trains/view-trains.component';
 import { EditAddTrainComponent } from './home/trains/trains/view-trains/edit-add-train/edit-add-train.component';
 import { UserInfoComponent } from './home/user-info/user-info.component';
+import { StationComponent } from './home/trains/trains/view-trains/edit-add-train/station/station.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +32,10 @@ import { UserInfoComponent } from './home/user-info/user-info.component';
     UsersComponent,
     TrainsComponent,
     BookingsComponent,
-    StationsComponent,
     ViewTrainsComponent,
     EditAddTrainComponent,
     UserInfoComponent,
+    StationComponent,
   ],
   imports: [
     BrowserModule,

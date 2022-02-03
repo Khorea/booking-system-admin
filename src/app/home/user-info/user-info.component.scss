@@ -1,6 +1,8 @@
-:host {
+:host, body {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -21,11 +23,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    flex-grow: 1;
 }
 
 .form-container {
     width: 60%;
-    
 }
 
 form {
@@ -39,6 +41,8 @@ form {
 
 .personal-info {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
     width: 100%;
 }
