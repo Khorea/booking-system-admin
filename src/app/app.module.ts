@@ -7,8 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user/user.component';
 import { LoginComponent } from './user/user/login/login/login.component';
 import { RegisterComponent } from './user/user/register/register/register.component';
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material/material/material.module';
@@ -20,7 +20,6 @@ import { BookingsComponent } from './home/bookings/bookings/bookings.component';
 import { ViewTrainsComponent } from './home/trains/trains/view-trains/view-trains.component';
 import { EditAddTrainComponent } from './home/trains/trains/view-trains/edit-add-train/edit-add-train.component';
 import { UserInfoComponent } from './home/user-info/user-info.component';
-import { StationComponent } from './home/trains/trains/view-trains/edit-add-train/station/station.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,6 @@ import { StationComponent } from './home/trains/trains/view-trains/edit-add-trai
     ViewTrainsComponent,
     EditAddTrainComponent,
     UserInfoComponent,
-    StationComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,16 +42,19 @@ import { StationComponent } from './home/trains/trains/view-trains/edit-add-trai
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      progressBar: true
+      progressBar: true,
     }),
     FormsModule,
-    MaterialModule
+    MaterialModule,
   ],
-  providers: [UserService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
