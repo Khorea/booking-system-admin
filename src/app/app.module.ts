@@ -19,7 +19,6 @@ import { BookingsComponent } from './home/bookings/bookings/bookings.component';
 import { ViewTrainsComponent } from './home/trains/trains/view-trains/view-trains.component';
 import { EditAddTrainComponent } from './home/trains/trains/view-trains/edit-add-train/edit-add-train.component';
 import { UserInfoComponent } from './home/user-info/user-info.component';
-import { StationComponent } from './home/trains/trains/view-trains/edit-add-train/station/station.component';
 import { StationsComponent } from './home/stations/stations.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StationItemComponent } from './home/stations/station-item/station-item.component';
@@ -37,7 +36,6 @@ import { StationItemComponent } from './home/stations/station-item/station-item.
     ViewTrainsComponent,
     EditAddTrainComponent,
     UserInfoComponent,
-    StationComponent,
     StationsComponent,
     StationItemComponent,
   ],

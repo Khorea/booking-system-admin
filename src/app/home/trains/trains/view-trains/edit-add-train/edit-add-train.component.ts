@@ -95,7 +95,6 @@ export class EditAddTrainComponent implements OnInit {
 
   ngOnInit() {
     this.clearItinerary();
-
     this.trainId = this.route.snapshot.params['trainId'];
     this.isAddMode = !this.trainId;
 
