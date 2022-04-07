@@ -1,13 +1,8 @@
-import { Time } from "@angular/common";
-
 export class StationModel {
-    stationId?: any;
-    constructor(
-        public location: string,
-        public arriveTime: Time,
-        public departureTime: Time,
-        public distance: number,
-        public line: number,
-        public orderNumber: number,
-    ) {  }
+  public stationId: number;
+  public name: string;
+  constructor(station: StationModel) {
+    this.stationId = station.stationId;
+    this.name = station.name;
+  }
 }

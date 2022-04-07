@@ -22,6 +22,7 @@ import { UserInfoComponent } from './home/user-info/user-info.component';
 import { StationComponent } from './home/trains/trains/view-trains/edit-add-train/station/station.component';
 import { StationsComponent } from './home/stations/stations.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StationItemComponent } from './home/stations/station-item/station-item.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserInfoComponent,
     StationComponent,
     StationsComponent,
+    StationItemComponent,
   ],
   imports: [
     BrowserModule,

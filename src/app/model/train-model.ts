@@ -1,10 +1,10 @@
-import { StationModel } from "./station-model";
-import { TrainLayout } from "./train-layout";
+import { ConnectionModel } from './connection-model';
+import { TrainLayout } from './train-layout';
 
 export class TrainModel {
-    constructor(
-        public trainType: string,
-        public stations: Array<StationModel>,
-        public trainLayout: TrainLayout,
-    ) {  }
+  constructor(
+    public trainType: string,
+    public connections: Array<ConnectionModel>,
+    public trainLayout: TrainLayout
+  ) {}
 }

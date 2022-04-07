@@ -8,23 +8,30 @@ import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
   userDetails!: UserDetails[];
   dataSource = new MatTableDataSource<UserDetails>();
-  displayedColumns: string[] = ['id', 'name', 'address', 'email', 'username', 'role'];
-  constructor(private router: Router, private service: UserService) { }
+  displayedColumns: string[] = [
+    'id',
+    'name',
+    'address',
+    'email',
+    'username',
+    'role',
+  ];
+  constructor(private router: Router, private service: UserService) {}
 
   observer = {
     next: (res: any) => {
-        console.log(res);
-        this.dataSource.data = res;
-        this.userDetails = res;
+      console.log(res);
+      this.dataSource.data = res;
+      this.userDetails = res;
     },
     error: (err: any) => {
-        console.log(err);
-    }
+      console.log(err);
+    },
   };
 
   ngOnInit() {
