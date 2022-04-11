@@ -1,17 +1,25 @@
-<div class="w-75 ph-2">
-  <div class="w-100 d-flex flex-nowrap align-items-center" style="height: 52px;">
+<div class="w-75 ph-2" style="background-color: rgba(0,0,0,.04);">
+  <div class="w-100 d-flex flex-nowrap align-items-center mb-5" style="height: 52px;">
     <div class="w-100 h-100">
       <mat-form-field class="w-100" appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" required>
+        <input #nameInput matInput required>
       </mat-form-field>
     </div>
     <div class="h-100">
-      <button class="h-100" mat-raised-button color="primary">
+      <button class="h-100" mat-raised-button color="primary" (click)="addStation(nameInput.value)">
         <mat-icon>
           add
         </mat-icon>
       </button>
     </div>
   </div>
+
+  <div *ngFor="let station of stations">
+    <app-station-item
+      [station]="station"
+      (deleteItemEvent)="deleteStation($event)"
+    ></app-station-item>
+  </div>
+
 </div>

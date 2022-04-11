@@ -62,8 +62,9 @@ export class EditAddTrainComponent implements OnInit {
 
   trainDetailsObserver = {
     next: (res: any) => {
+      console.log(res);
       this.trainType?.setValue(res.trainType);
-      res.stations.forEach((station: any) => {
+      res.connections.forEach((station: any) => {
         this.addExistingStation(
           station.stationId,
           station.arriveTime,
@@ -85,8 +86,7 @@ export class EditAddTrainComponent implements OnInit {
 
   getStationsObserver = {
     next: (res: any) => {
-      this.stations = res.result;
-      console.log(this.stations);
+      this.stations = res;
     },
     error: (err: any) => {
       console.log(err);
