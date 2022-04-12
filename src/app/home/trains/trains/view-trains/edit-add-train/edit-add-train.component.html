@@ -19,10 +19,10 @@
         <div class="itinerary-info-container">
           <ng-container formArrayName="stationIds">
             <div class="station-same-input-containers first">
-              <div *ngFor="let stationId of stationIds.controls; let i=index">
+              <div *ngFor="let stationId of stationIds.controls; let i=index" class="input-container">
                 <mat-form-field appearance="fill">
                     <mat-label>Station</mat-label>
-                    <mat-select [formControlName]="i">
+                    <mat-select class="mat-select-class" [formControlName]="i">
                       <mat-option *ngFor="let s of stations" [value]="s.stationId">
                           {{s.name}}
                       </mat-option>
@@ -32,8 +32,8 @@
             </div>
           </ng-container>
           <ng-container formArrayName="arrivals">
-            <div class="station-same-input-containers">
-              <div *ngFor="let arriveTime of arrivals.controls; let i=index">
+            <div class="station-same-input-containers fs-18">
+              <div *ngFor="let arriveTime of arrivals.controls; let i=index" class="input-container">
                 <mat-form-field appearance="legacy">
                   <mat-label>Arrive time</mat-label>
                   <input matInput type="time" [formControlName]="i" />
@@ -42,8 +42,8 @@
             </div>
           </ng-container>
           <ng-container formArrayName="departures">
-            <div class="station-same-input-containers">
-              <div *ngFor="let departureTime of departures.controls; let i=index">
+            <div class="station-same-input-containers fs-18">
+              <div *ngFor="let departureTime of departures.controls; let i=index" class="input-container">
                 <mat-form-field appearance="legacy">
                   <mat-label>Departure time</mat-label>
                   <input matInput type="time" [formControlName]="i" />
@@ -52,8 +52,8 @@
             </div>
           </ng-container>
           <ng-container formArrayName="distances">
-            <div class="station-same-input-containers">
-              <div *ngFor="let distance of distances.controls; let i=index">
+            <div class="station-same-input-containers fs-18">
+              <div *ngFor="let distance of distances.controls; let i=index" class="input-container">
                 <mat-form-field appearance="legacy">
                   <mat-label>Distance</mat-label>
                   <input matInput type="number" [formControlName]="i" />
@@ -62,8 +62,8 @@
             </div>
           </ng-container>
           <ng-container formArrayName="lines">
-            <div class="station-same-input-containers last">
-              <div *ngFor="let line of lines.controls; let i=index">
+            <div class="station-same-input-containers last fs-18">
+              <div *ngFor="let line of lines.controls; let i=index" class="input-container">
                 <mat-form-field appearance="legacy">
                   <mat-label>Line</mat-label>
                   <input matInput type="number" [formControlName]="i" />

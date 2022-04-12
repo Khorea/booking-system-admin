@@ -35,6 +35,14 @@ mat-tab-group {
     flex-grow: 1;
 }
 
+.fs-18 {
+  font-size: 18px;
+}
+
+.input-container {
+  height: 75px;
+}
+
 .content {
     flex-grow: 1;
     display: flex;
@@ -76,4 +84,8 @@ mat-tab-group {
     justify-content: center;
     gap: 75px;
     width: 100%;
+}
+
+::ng-deep .mat-form-field {
+  height: 70px;
 }

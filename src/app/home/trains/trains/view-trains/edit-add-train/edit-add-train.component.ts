@@ -1,6 +1,11 @@
 import { ConnectionModel } from './../../../../../model/connection-model';
 import { Time } from '@angular/common';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -20,6 +25,7 @@ import { StationService } from 'src/app/shared/station.service';
   templateUrl: './edit-add-train.component.html',
   styleUrls: ['./edit-add-train.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class EditAddTrainComponent implements OnInit {
   public stations!: StationModel[];
@@ -64,16 +70,17 @@ export class EditAddTrainComponent implements OnInit {
     next: (res: any) => {
       console.log(res);
       this.trainType?.setValue(res.trainType);
-      res.connections.forEach((station: any) => {
+      const len = res.connections.length;
+      for (let i = 0; i < len; i++) {
         this.addExistingStation(
-          station.stationId,
-          station.arriveTime,
-          station.departureTime,
-          station.distance,
-          station.line,
-          station.orderNumber
+          res.connections[i].startStationId,
+          res.connections[i].arriveTime,
+          res.connections[i].departureTime,
+          res.connections[i].distance,
+          res.connections[i].line,
+          res.connections[i].orderNumber
         );
-      });
+      }
       this.firstClass?.setValue(res.trainLayout.firstClass);
       this.secondClass?.setValue(res.trainLayout.secondClass);
       this.firstClassSleeper?.setValue(res.trainLayout.firstClassSleeper);
@@ -225,10 +232,13 @@ export class EditAddTrainComponent implements OnInit {
   onSubmit() {
     this.trainModel.trainType = this.trainTypeFormGroup.get('trainType')?.value;
     const n = this.stationIds.length;
-    for (let i = 0; i < n - 1; i++) {
+    for (let i = 0; i < n; i++) {
       let newConnection = new ConnectionModel({
         startStationId: this.stationIds.at(i).value,
-        endStationId: this.stationIds.at(i + 1).value,
+        endStationId:
+          i + 1 >= n
+            ? this.stationIds.at(i).value
+            : this.stationIds.at(i + 1).value,
         arriveTime: this.arrivals.at(i).value,
         departureTime: this.departures.at(i).value,
         distance: this.distances.at(i).value,
